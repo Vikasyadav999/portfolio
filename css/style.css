@@ -454,16 +454,21 @@ section {
     border-radius: 15px;
     overflow: hidden;
     box-shadow: 0 10px 30px rgba(0,0,0,0.1);
-    transition: transform 0.3s cubic-bezier(0.4, 0, 0.2, 1),
-                box-shadow 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
     position: relative;
     cursor: pointer;
     border: 1px solid rgba(0,0,0,0.05);
 }
 
+.project-link {
+    text-decoration: none;
+    color: inherit;
+    display: block;
+}
+
 .project-card:hover {
     transform: translateY(-10px);
-    box-shadow: 0 15px 40px rgba(0,0,0,0.15);
+    box-shadow: 0 15px 40px rgba(0,123,255,0.2);
 }
 
 .project-content {
@@ -478,22 +483,11 @@ section {
     color: var(--text-color);
     position: relative;
     padding-bottom: 0.8rem;
+    transition: color 0.3s ease;
 }
 
-.project-content h3::after {
-    content: '';
-    position: absolute;
-    left: 0;
-    bottom: 0;
-    width: 60px;
-    height: 3px;
-    background: linear-gradient(90deg, var(--primary-color), #00ff88);
-    border-radius: 2px;
-    transition: width 0.3s ease;
-}
-
-.project-card:hover .project-content h3::after {
-    width: 120px;
+.project-card:hover .project-content h3 {
+    color: var(--primary-color);
 }
 
 .project-content p {
@@ -504,10 +498,7 @@ section {
 }
 
 .project-tech {
-    display: flex;
-    gap: 1rem;
-    margin: 1.8rem 0;
-    flex-wrap: wrap;
+    margin-top: 1.5rem;
 }
 
 .project-tech span {
@@ -528,6 +519,9 @@ section {
 
 .project-links {
     margin-top: 2rem;
+    display: flex;
+    gap: 1rem;
+    flex-wrap: wrap;
 }
 
 .project-links a {
@@ -535,19 +529,23 @@ section {
     align-items: center;
     gap: 0.5rem;
     color: var(--primary-color);
-    font-size: 1.1rem;
+    font-size: 1rem;
     font-weight: 600;
     text-decoration: none;
     transition: all 0.3s ease;
     padding: 0.8rem 1.5rem;
     background: rgba(0,123,255,0.1);
     border-radius: 25px;
+    flex: 1;
+    justify-content: center;
+    min-width: 160px;
 }
 
 .project-links a:hover {
     background: var(--primary-color);
     color: var(--white);
     transform: translateY(-2px);
+    box-shadow: 0 4px 12px rgba(0,123,255,0.2);
 }
 
 .project-overlay {
@@ -593,6 +591,26 @@ section {
 .project-overlay-content .btn:hover {
     transform: translateY(-2px);
     box-shadow: 0 5px 15px rgba(0,0,0,0.2);
+}
+
+.view-project {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+    color: var(--primary-color);
+    font-size: 1rem;
+    font-weight: 600;
+    padding: 0.8rem 1.5rem;
+    background: rgba(0,123,255,0.1);
+    border-radius: 25px;
+    transition: all 0.3s ease;
+}
+
+.project-card:hover .view-project {
+    background: var(--primary-color);
+    color: var(--white);
+    transform: translateY(-2px);
+    box-shadow: 0 4px 12px rgba(0,123,255,0.2);
 }
 
 /* Contact Section */
@@ -814,6 +832,12 @@ footer {
     
     .skill-item h4 {
         font-size: 1rem;
+    }
+    .project-links {
+        flex-direction: column;
+    }
+    .project-links a {
+        width: 100%;
     }
 }
 
